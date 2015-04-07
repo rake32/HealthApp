@@ -1,0 +1,56 @@
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:gravity="center_horizontal"
+            android:text="Hello ! Make Medicine Reminder !"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <edu.osu.cse.healthapp.ui.EnterFieldLayout
+            android:id="@+id/view1"
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/listPreferredItemHeight"
+            custom:titleText="From Date : "
+            />
+        <edu.osu.cse.healthapp.ui.EnterFieldLayout
+            android:id="@+id/view2"
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/listPreferredItemHeight"
+            custom:titleText="To Date : "
+            />
+        <edu.osu.cse.healthapp.ui.EnterFieldLayout
+            android:id="@+id/view3"
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/listPreferredItemHeight"
+            custom:titleText="Medicine Name: "
+            />
+        <edu.osu.cse.healthapp.ui.EnterFieldLayout
+            android:id="@+id/view4"
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/listPreferredItemHeight"
+            custom:titleText="Timings:  "
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add Record  +"
+            android:id="@+id/addLog"
+            android:layout_gravity="center_horizontal" />
+    </LinearLayout>
+
+</ScrollView>

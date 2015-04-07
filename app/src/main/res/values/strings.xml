@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">HealthApp</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_log">LogActivity</string>
+    <string name="title_activity_menu">MenuActivity</string>
+    <string name="title_activity_med">MedActivity</string>
+</resources>
