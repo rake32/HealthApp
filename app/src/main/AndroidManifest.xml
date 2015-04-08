@@ -9,11 +9,12 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name=".LogActivity"
-            android:label="@string/title_activity_log" >
+            android:label="@string/title_activity_log"
+            android:parentActivityName=".MenuActivity">
         </activity>
         <activity
             android:name=".MenuActivity"
-            android:label="@string/title_activity_menu" >
+            android:label="@string/title_activity_menu">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -22,7 +23,8 @@
         </activity>
         <activity
             android:name=".MedActivity"
-            android:label="@string/title_activity_med" >
+            android:label="@string/title_activity_med"
+            android:parentActivityName=".MenuActivity">
         </activity>
     </application>
 

@@ -39,8 +39,16 @@ android:layout_height="match_parent">
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Add Log  +"
+            android:text="Add Med  +"
             android:id="@+id/addMedRecord"
+            android:layout_gravity="center_horizontal"
+            android:onClick="onClick"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Del All  +"
+            android:id="@+id/delAll"
             android:layout_gravity="center_horizontal"
             android:onClick="onClick"/>
     </LinearLayout>

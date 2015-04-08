@@ -24,7 +24,6 @@ public class EnterFieldLayout extends LinearLayout {
         super(context, null);
     }
 
-
     public EnterFieldLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
 

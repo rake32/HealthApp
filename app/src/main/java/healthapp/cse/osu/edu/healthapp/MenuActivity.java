@@ -16,6 +16,7 @@ import java.util.Date;
 import java.util.Locale;
 
 import edu.osu.cse.healthapp.db.LogDO;
+import edu.osu.cse.healthapp.helper.DBService;
 import io.realm.Realm;
 
 
@@ -24,6 +25,7 @@ public class MenuActivity extends ActionBarActivity {
     private LinearLayout rootLayout = null;
     private Realm realm;
     Button logb;
+    DBService dbService;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,7 +58,6 @@ public class MenuActivity extends ActionBarActivity {
         super.onStart();
         Log.e(TAG, "+++ ON START +++");
         setUp();
-        //basicCRUD(realm);
     }
 
     @Override
@@ -67,7 +68,10 @@ public class MenuActivity extends ActionBarActivity {
 
     public void setUp(){
         Log.e(TAG, "+++ IN UI SETUP +++");
+
         realm = Realm.getInstance(this);
+        dbService = DBService.getInstance();
+        dbService.init(realm);
         logb = (Button) findViewById(R.id.addLog);
     }
 
@@ -75,18 +79,19 @@ public class MenuActivity extends ActionBarActivity {
         Log.e(TAG, "+++ IN onCLick +++");
         switch (view.getId()) {
             case R.id.addLog:
-                //basicCRUD(realm);
                 Intent intent1 = new Intent(this, LogActivity.class);//TODO global ?
                 startActivity(intent1);
                 break;
-            case R.id.addMedRecord:
-                //basicCRUD(realm);
-                Intent intent2 = new Intent(this, LogActivity.class);//TODO global ?
+            case +R.id.addMedRecord:
+                Intent intent2 = new Intent(this, MedActivity.class);//TODO global ?
                 startActivity(intent2);
                 break;
+            case R.id.delAll:
+                dbService.delAll();
+
         }
     }
-
+/*
     private void basicCRUD(Realm realm) {
         Log.d(TAG, "aloha");
 
@@ -95,8 +100,8 @@ public class MenuActivity extends ActionBarActivity {
         // All writes must be wrapped in a transaction to facilitate safe multi threading
         realm.beginTransaction();
 
-        LogDO log = realm.createObject(LogDO.class);
-        //log.setId(1);
+        LogDO log+ = realm.createObject(LogDO.class);
+        //log.setId(+1);
         log.setDate(getDateTime());
         log.setCalories_consumed(20);
         log.setCalories_burnt(2);
@@ -116,15 +121,7 @@ public class MenuActivity extends ActionBarActivity {
             showStatus(log.getWeight());
             realm.commitTransaction();
 
-            // Delete all persons
-            realm.beginTransaction();
-            realm.allObjects(LogDO.class).clear();
-            realm.commitTransaction();
-        }
-        Log.d(TAG, "aloha2");
-    }
-
-    private String getDateTime() {
+            // Delete all private String getDateTime() {
         SimpleDateFormat dateFormat = new SimpleDateFormat(
                 "yyyy-MM-dd HH:mm:ss", Locale.getDefault());
         Date date;
@@ -133,6 +130,13 @@ public class MenuActivity extends ActionBarActivity {
     }
 
 
+ persons
+            realm.beginTransaction();
+            realm.allObjects(LogDO.class).clear();
+            realm.commitTransaction();
+        }
+        Log.d(TAG, "aloha2");
+    }
 
     private void showStatus(String txt) {
         Log.i(TAG, txt);
@@ -140,5 +144,5 @@ public class MenuActivity extends ActionBarActivity {
         tv.setText(txt);
         //rootLayout.addView(tv);
     }
-
+*/
 }
