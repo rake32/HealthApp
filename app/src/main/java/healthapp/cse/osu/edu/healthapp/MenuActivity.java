@@ -78,16 +78,21 @@ public class MenuActivity extends ActionBarActivity {
     public void onClick(View view) {
         Log.e(TAG, "+++ IN onCLick +++");
         switch (view.getId()) {
-            case R.id.addLog:
+            case R.id.addLogs:
                 Intent intent1 = new Intent(this, LogActivity.class);//TODO global ?
                 startActivity(intent1);
                 break;
-            case +R.id.addMedRecord:
+            case +R.id.addMedRecords:
                 Intent intent2 = new Intent(this, MedActivity.class);//TODO global ?
                 startActivity(intent2);
                 break;
             case R.id.delAll:
                 dbService.delAll();
+                break;
+            case R.id.showAllLogs:
+                Intent intent3 = new Intent(this, DisplayResultsActivity.class);//TODO global ?
+                startActivity(intent3);
+                break;
 
         }
     }

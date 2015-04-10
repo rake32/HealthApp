@@ -49,8 +49,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Add Record  +"
-            android:id="@+id/addLog"
-            android:layout_gravity="center_horizontal" />
+            android:id="@+id/addMedRecord"
+            android:layout_gravity="center_horizontal"
+            android:onClick="onClick"/>
     </LinearLayout>
 
 </ScrollView>

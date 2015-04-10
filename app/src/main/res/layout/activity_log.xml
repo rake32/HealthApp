@@ -21,25 +21,25 @@
             android:layout_height="wrap_content"/>
 
         <edu.osu.cse.healthapp.ui.EnterFieldLayout
-            android:id="@+id/view1"
+            android:id="@+id/ccLL"
             android:layout_width="match_parent"
             android:layout_height="?android:attr/listPreferredItemHeight"
             custom:titleText="Calories Consumed : "
             />
         <edu.osu.cse.healthapp.ui.EnterFieldLayout
-            android:id="@+id/view2"
+            android:id="@+id/cbLL"
             android:layout_width="match_parent"
             android:layout_height="?android:attr/listPreferredItemHeight"
             custom:titleText="Calories Burnt : "
             />
         <edu.osu.cse.healthapp.ui.EnterFieldLayout
-            android:id="@+id/view3"
+            android:id="@+id/wiLL"
             android:layout_width="match_parent"
             android:layout_height="?android:attr/listPreferredItemHeight"
             custom:titleText="Water Intake (litres): "
             />
         <edu.osu.cse.healthapp.ui.EnterFieldLayout
-            android:id="@+id/view4"
+            android:id="@+id/wLL"
             android:layout_width="match_parent"
             android:layout_height="?android:attr/listPreferredItemHeight"
             custom:titleText="Weight (lb): "
@@ -50,7 +50,8 @@
             android:layout_height="wrap_content"
             android:text="Add Log  +"
             android:id="@+id/addLog"
-            android:layout_gravity="center_horizontal" />
+            android:layout_gravity="center_horizontal"
+            android:onClick="onClick"/>
     </LinearLayout>
 
 </ScrollView>

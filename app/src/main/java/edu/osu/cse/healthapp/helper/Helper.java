@@ -15,4 +15,12 @@ public class Helper {
         date = new Date();
         return dateFormat.format(date);
     }
+
+    public static boolean isValidInt(String s) {
+        return (!s.isEmpty() && s.matches("[0-9]*"));
+    }
+
+    public static boolean isValid(String s) {
+        return (!s.isEmpty() && s.matches("[0-9]*\\.?[0-9]*"));
+    }
 }

@@ -14,7 +14,7 @@ android:layout_height="match_parent">
     android:layout_height="wrap_content">
     <TextView
         android:gravity="center_horizontal"
-        android:text="Status Output..."
+        android:text="FIT ZONE !! "
         android:textStyle="bold"
         android:textSize="18sp"
         android:layout_width="match_parent"
@@ -32,7 +32,7 @@ android:layout_height="match_parent">
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Add Log  +"
-            android:id="@+id/addLog"
+            android:id="@+id/addLogs"
             android:layout_gravity="center_horizontal"
             android:onClick="onClick"/>
 
@@ -40,7 +40,7 @@ android:layout_height="match_parent">
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Add Med  +"
-            android:id="@+id/addMedRecord"
+            android:id="@+id/addMedRecords"
             android:layout_gravity="center_horizontal"
             android:onClick="onClick"/>
 
@@ -49,6 +49,14 @@ android:layout_height="match_parent">
             android:layout_height="wrap_content"
             android:text="Del All  +"
             android:id="@+id/delAll"
+            android:layout_gravity="center_horizontal"
+            android:onClick="onClick"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Show All Logs "
+            android:id="@+id/showAllLogs"
             android:layout_gravity="center_horizontal"
             android:onClick="onClick"/>
     </LinearLayout>
