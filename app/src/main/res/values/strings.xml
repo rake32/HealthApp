@@ -7,4 +7,5 @@
     <string name="title_activity_menu">MenuActivity</string>
     <string name="title_activity_med">MedActivity</string>
     <string name="title_activity_display_results">DisplayResultsActivity</string>
+    <string name="title_activity_barcode_scanner">BarcodeScannerActivity</string>
 </resources>

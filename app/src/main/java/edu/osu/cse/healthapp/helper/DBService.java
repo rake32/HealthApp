@@ -47,12 +47,19 @@ public class DBService {
         RealmResults<LogDO> logs = realm.where(LogDO.class).findAll();
         return logs;
     }
+
+    public RealmResults<LogDO> findRangeLogs(String startDate, String endDate) {
+        RealmResults<LogDO> logs = realm.where(LogDO.class).findAll();//TODO
+        return logs;
+    }
+
     public void delAll() {
         realm.beginTransaction();
         realm.allObjects(LogDO.class).clear();
         realm.allObjects(MedicationDO.class).clear();
         realm.commitTransaction();
     }
+
     /* Make it a singleton class*/
     private DBService(){
 

@@ -30,6 +30,21 @@
             android:name=".DisplayResultsActivity"
             android:label="@string/title_activity_display_results" >
         </activity>
+        <activity
+            android:name=".BarcodeScannerActivity"
+            android:label="@string/title_activity_barcode_scanner"
+            android:configChanges="orientation|keyboardHidden" >
+        </activity>
+        <activity android:name="jim.h.common.android.zxinglib.CaptureActivity"
+            android:screenOrientation="landscape" android:configChanges="orientation|keyboardHidden"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            android:windowSoftInputMode="stateAlwaysHidden" />
     </application>
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
 
 </manifest>

@@ -90,8 +90,12 @@ public class MenuActivity extends ActionBarActivity {
                 dbService.delAll();
                 break;
             case R.id.showAllLogs:
-                Intent intent3 = new Intent(this, DisplayResultsActivity.class);//TODO global ?
+                Intent intent3 = new Intent(this, DisplayResultsActivity.class);
                 startActivity(intent3);
+                break;
+            case R.id.barCodeScan:
+                Intent intent4 = new Intent(this, BarcodeScannerActivity.class);
+                startActivity(intent4);
                 break;
 
         }

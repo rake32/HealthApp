@@ -15,6 +15,7 @@ import edu.osu.cse.healthapp.helper.Helper;
 import edu.osu.cse.healthapp.ui.EnterFieldLayout;
 
 
+
 public class LogActivity extends ActionBarActivity {
     DBService dbService;
     @Override
