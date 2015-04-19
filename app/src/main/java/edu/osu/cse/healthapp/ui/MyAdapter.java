@@ -22,11 +22,15 @@ import android.view.ViewGroup;
 import android.widget.ListAdapter;
 import android.widget.TextView;
 
-import edu.osu.cse.healthapp.db.LogDO;
+//import edu.osu.cse.healthapp.db.LogDO;
 import healthapp.cse.osu.edu.healthapp.R;
 import io.realm.RealmBaseAdapter;
 import io.realm.RealmResults;
 
+public class MyAdapter {
+
+}
+/*
 public class MyAdapter extends RealmBaseAdapter<LogDO> implements ListAdapter {
 
     private static class ViewHolder {
@@ -39,6 +43,7 @@ public class MyAdapter extends RealmBaseAdapter<LogDO> implements ListAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+
         LogDO item = realmResults.get(position);
         convertView = inflater.inflate(R.layout.simple_result_row, parent, false);
         TextView textView1 = (TextView) convertView.findViewById(R.id.res_date);
@@ -59,3 +64,4 @@ public class MyAdapter extends RealmBaseAdapter<LogDO> implements ListAdapter {
         return realmResults;
     }
 }
+*/

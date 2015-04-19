@@ -2,6 +2,15 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="healthapp.cse.osu.edu.healthapp" >
 
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -32,19 +41,24 @@
         </activity>
         <activity
             android:name=".BarcodeScannerActivity"
-            android:label="@string/title_activity_barcode_scanner"
-            android:configChanges="orientation|keyboardHidden" >
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/title_activity_barcode_scanner" >
         </activity>
-        <activity android:name="jim.h.common.android.zxinglib.CaptureActivity"
-            android:screenOrientation="landscape" android:configChanges="orientation|keyboardHidden"
+        <activity
+            android:name="jim.h.common.android.zxinglib.CaptureActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:screenOrientation="landscape"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
             android:windowSoftInputMode="stateAlwaysHidden" />
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/title_activity_main" >
+
+        </activity>
+        <activity
+            android:name=".TimeChartActivity"
+            android:label="@string/title_activity_time_chart" >
+        </activity>
     </application>
-    <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-feature android:name="android.hardware.camera" />
-    <uses-feature android:name="android.hardware.camera.autofocus" />
-    <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-permission android:name="android.permission.FLASHLIGHT" />
 
 </manifest>

@@ -8,4 +8,6 @@
     <string name="title_activity_med">MedActivity</string>
     <string name="title_activity_display_results">DisplayResultsActivity</string>
     <string name="title_activity_barcode_scanner">BarcodeScannerActivity</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_time_chart">TimeChartActivity</string>
 </resources>

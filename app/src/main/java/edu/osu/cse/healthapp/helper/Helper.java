@@ -10,7 +10,7 @@ import java.util.Locale;
 public class Helper {
     public static String getDateTime() {
         SimpleDateFormat dateFormat = new SimpleDateFormat(
-                "yyyy-MM-dd HH:mm:ss", Locale.getDefault());
+                "yyyy-MM-dd", Locale.getDefault());
         Date date;
         date = new Date();
         return dateFormat.format(date);

@@ -72,13 +72,15 @@ public class LogActivity extends ActionBarActivity {
         v = (EnterFieldLayout)findViewById(R.id.wLL);
         et4 = (EditText)v.findViewById(R.id.fval_txt);
         String s4 = et4.getText().toString();
-        if(!(Helper.isValidInt(s1) && Helper.isValidInt(s2) && Helper.isValidInt(s3) && Helper.isValidInt(s4))) {
-            Toast.makeText(getApplicationContext(), "Please Input Correct Information !!",
-                    Toast.LENGTH_SHORT).show();
-            et1.setText(""); et2.setText(""); et3.setText(""); et4.setText("");
-            return;
-        }
-        dbService.addLog(s1, s2, s3, s4);
+//        if(!(Helper.isValidInt(s1) && Helper.isValidInt(s2) && Helper.isValidInt(s3) && Helper.isValidInt(s4))) {
+//            Toast.makeText(getApplicationContext(), "Please Input Correct Information !!",
+//                    Toast.LENGTH_SHORT).show();
+//            et1.setText(""); et2.setText(""); et3.setText(""); et4.setText("");
+//            return;
+//        }
+        //TODO
+        dbService.addWtLog(s1);
+        //dbService.addLog(s1, s2, s3, s4);
         et1.setText(""); et2.setText(""); et3.setText(""); et4.setText("");
     }
 }

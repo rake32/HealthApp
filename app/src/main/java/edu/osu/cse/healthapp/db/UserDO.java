@@ -7,10 +7,11 @@ import io.realm.RealmObject;
  */
 public class UserDO extends RealmObject {
     private String name;
-    private String pwd;
     private String hasFitBit;//boolean ?
     private String weight;
     private String height;
+    private String bloodGroup;
+    private String gender;
 
     public String getName() {
         return name;
@@ -18,14 +19,6 @@ public class UserDO extends RealmObject {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getPwd() {
-        return pwd;
-    }
-
-    public void setPwd(String pwd) {
-        this.pwd = pwd;
     }
 
     public String getHasFitBit() {
@@ -51,4 +44,21 @@ public class UserDO extends RealmObject {
     public void setHeight(String height) {
         this.height = height;
     }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public String getBloodGroup() {
+        return bloodGroup;
+    }
+
+    public void setBloodGroup(String bloodGroup) {
+        this.bloodGroup = bloodGroup;
+    }
+
 }

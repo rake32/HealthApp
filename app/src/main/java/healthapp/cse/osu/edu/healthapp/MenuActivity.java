@@ -15,7 +15,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-import edu.osu.cse.healthapp.db.LogDO;
 import edu.osu.cse.healthapp.helper.DBService;
 import io.realm.Realm;
 
@@ -97,6 +96,12 @@ public class MenuActivity extends ActionBarActivity {
                 Intent intent4 = new Intent(this, BarcodeScannerActivity.class);
                 startActivity(intent4);
                 break;
+            case R.id.graphView:
+                Intent intent5 = new Intent(this, TimeChartActivity.class);
+                startActivity(intent5);
+                break;
+
+
 
         }
     }

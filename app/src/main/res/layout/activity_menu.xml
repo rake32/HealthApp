@@ -67,6 +67,13 @@ android:layout_height="match_parent">
             android:id="@+id/barCodeScan"
             android:layout_gravity="center_horizontal"
             android:onClick="onClick"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Graph View"
+            android:id="@+id/graphView"
+            android:layout_gravity="center_horizontal"
+            android:onClick="onClick"/>
     </LinearLayout>
 </LinearLayout>
 </ScrollView>

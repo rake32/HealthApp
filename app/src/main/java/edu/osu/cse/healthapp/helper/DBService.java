@@ -1,13 +1,12 @@
 package edu.osu.cse.healthapp.helper;
 
 import android.util.Log;
-import android.widget.ListView;
-import android.widget.TextView;
 
-import edu.osu.cse.healthapp.db.LogDO;
+import edu.osu.cse.healthapp.db.CalBurntDO;
+import edu.osu.cse.healthapp.db.CalConsumedDO;
 import edu.osu.cse.healthapp.db.MedicationDO;
-import edu.osu.cse.healthapp.ui.MyAdapter;
-import healthapp.cse.osu.edu.healthapp.R;
+import edu.osu.cse.healthapp.db.StepsDO;
+import edu.osu.cse.healthapp.db.WeightDO;
 import io.realm.Realm;
 import io.realm.RealmResults;
 
@@ -18,14 +17,12 @@ public class DBService {
     private Realm realm;
     private static DBService   dbService;
 
-    public void addLog(String cc, String cb, String wi, String w) {
+    public void addWtLog(String w) {
+        Log.d("addWtLog",w);
         realm.beginTransaction();
-        LogDO o = realm.createObject(LogDO.class);
+        WeightDO o = realm.createObject(WeightDO.class);
         //log.setId(1);
         o.setDate(Helper.getDateTime());
-        o.setCalories_consumed(cc);
-        o.setCalories_burnt(cb);
-        o.setwater_intake(wi);
         o.setWeight(w);
         // When the write transaction is committed, all changes a synced to disk.
         realm.commitTransaction();
@@ -43,19 +40,38 @@ public class DBService {
         realm.commitTransaction();
     }
 
-    public RealmResults<LogDO> findAllLogs() {
-        RealmResults<LogDO> logs = realm.where(LogDO.class).findAll();
+
+    public RealmResults<WeightDO> findAllWtLogs() {
+        RealmResults<WeightDO> logs = realm.where(WeightDO.class).findAll();
         return logs;
     }
 
-    public RealmResults<LogDO> findRangeLogs(String startDate, String endDate) {
-        RealmResults<LogDO> logs = realm.where(LogDO.class).findAll();//TODO
+    public RealmResults<StepsDO> findAllSteps() {
+        RealmResults<StepsDO> logs = realm.where(StepsDO.class).findAll();
+        return logs;
+    }
+
+    public RealmResults<CalConsumedDO> findAllCalConsumedLogs() {
+        RealmResults<CalConsumedDO> logs = realm.where(CalConsumedDO.class).findAll();
+        return logs;
+    }
+
+    public RealmResults<CalBurntDO> findAllCalBurntLogs() {
+        RealmResults<CalBurntDO> logs = realm.where(CalBurntDO.class).findAll();
+        return logs;
+    }
+
+
+    public RealmResults<WeightDO> findRangeLogs(String startDate, String endDate) {
+        RealmResults<WeightDO> logs = realm.where(WeightDO.class).findAll();
         return logs;
     }
 
     public void delAll() {
         realm.beginTransaction();
-        realm.allObjects(LogDO.class).clear();
+        realm.allObjects(WeightDO.class).clear();
+        realm.allObjects(CalBurntDO.class).clear();
+        realm.allObjects(CalConsumedDO.class).clear();
         realm.allObjects(MedicationDO.class).clear();
         realm.commitTransaction();
     }

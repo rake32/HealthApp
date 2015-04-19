@@ -4,34 +4,21 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ListView;
-
-import edu.osu.cse.healthapp.helper.DBService;
-import edu.osu.cse.healthapp.ui.MyAdapter;
-import io.realm.RealmResults;
 
 
-public class DisplayResultsActivity extends ActionBarActivity {
-    DBService dbService;
+public class MainActivity extends ActionBarActivity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_display_results);
-        dbService = DBService.getInstance();
-        //Realm.deleteRealmFile(this);
-//        RealmResults<LogDO> logs = dbService.findAllLogs();
-//
-//        final MyAdapter adapter = new MyAdapter(this, R.id.listView, logs, true);
-//        ListView listView = (ListView) findViewById(R.id.listView);
-//        listView.setAdapter(adapter);
-
+        setContentView(R.layout.activity_main);
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_display_results, menu);
+        getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
