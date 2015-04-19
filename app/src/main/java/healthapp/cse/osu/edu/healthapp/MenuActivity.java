@@ -23,8 +23,9 @@ public class MenuActivity extends ActionBarActivity {
     private  String TAG = MenuActivity.class.getName();
     private LinearLayout rootLayout = null;
     private Realm realm;
-    Button logb;
+
     DBService dbService;
+    Button logb;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -21,10 +21,8 @@ public class DBService {
         Log.d("addWtLog",w);
         realm.beginTransaction();
         WeightDO o = realm.createObject(WeightDO.class);
-        //log.setId(1);
         o.setDate(Helper.getDateTime());
         o.setWeight(w);
-        // When the write transaction is committed, all changes a synced to disk.
         realm.commitTransaction();
     }
 
@@ -65,6 +63,14 @@ public class DBService {
     public RealmResults<WeightDO> findRangeLogs(String startDate, String endDate) {
         RealmResults<WeightDO> logs = realm.where(WeightDO.class).findAll();
         return logs;
+    }
+
+//TODO better way
+    public WeightDO findLastWt() {
+        RealmResults<WeightDO> results = realm.where(WeightDO.class).findAllSorted("date", RealmResults.SORT_ORDER_DESCENDING);
+        if(results.isEmpty())
+            return null;
+        return results.get(0);
     }
 
     public void delAll() {

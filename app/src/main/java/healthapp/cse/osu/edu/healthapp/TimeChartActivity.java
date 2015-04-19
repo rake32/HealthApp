@@ -13,13 +13,12 @@ import org.achartengine.model.TimeSeries;
 import org.achartengine.model.XYMultipleSeriesDataset;
 import org.achartengine.renderer.XYMultipleSeriesRenderer;
 import org.achartengine.renderer.XYSeriesRenderer;
-
+import edu.osu.cse.healthapp.db.CalBurntDO;
 import edu.osu.cse.healthapp.db.StepsDO;
 import edu.osu.cse.healthapp.db.WeightDO;
 import edu.osu.cse.healthapp.helper.DBService;
 import edu.osu.cse.healthapp.helper.GraphChoice;
 import io.realm.RealmResults;
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.res.Configuration;
@@ -33,8 +32,10 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class TimeChartActivity extends Activity implements OnItemSelectedListener{
@@ -53,6 +54,8 @@ public class TimeChartActivity extends Activity implements OnItemSelectedListene
     XYSeriesRenderer renderer2;
     XYMultipleSeriesRenderer multiRenderer;
     DBService dbService;
+    TextView topTxtLbl, topTxtVal ;
+    Button addButton;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,10 +63,35 @@ public class TimeChartActivity extends Activity implements OnItemSelectedListene
         dbService = DBService.getInstance();
         Bundle extras = getIntent().getExtras();
         if (extras != null) {//TODO
-            //strChosen = extras.getString("graph_for");
+            strChosen = extras.getString("GRAPH_FOR");
         }
-
+        setUp();
     }
+
+    private void setUp() {
+        topTxtLbl = (TextView)findViewById(R.id.curStatusLabel);
+        topTxtLbl.setText(strChosen);
+        topTxtVal = (TextView)findViewById(R.id.curStatusVal);
+        if(strChosen.equals(GraphChoice.WEIGHT.toString())) {
+            WeightDO w = dbService.findLastWt();
+            if(w!=null)
+                topTxtVal.setText(w.getWeight());
+            else
+                topTxtVal.setText("NO WEIGHT RECORDS");
+        }
+        else
+            topTxtVal.setText("TODO - ANAND");
+        addButton = (Button)findViewById(R.id.addRec);
+        addButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //TODO -
+                dbService.addWtLog("50");
+
+            }
+        });
+    }
+
     private void setTextSize(Context context){
         DisplayMetrics metrics = context.getResources().getDisplayMetrics();
         float low = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 13, metrics);
@@ -83,14 +111,12 @@ public class TimeChartActivity extends Activity implements OnItemSelectedListene
             renderer2.setLineWidth(4);
             renderer2.setChartValuesTextSize(30);
             renderer2.setDisplayChartValues(true);
-
             multiRenderer.setPointSize(5);
         }
         else{
             renderer1.setLineWidth(2);
             renderer1.setChartValuesTextSize(10);
             renderer1.setDisplayChartValues(true);
-
             renderer2.setLineWidth(2);
             renderer2.setChartValuesTextSize(10);
             renderer2.setDisplayChartValues(true);
@@ -99,29 +125,17 @@ public class TimeChartActivity extends Activity implements OnItemSelectedListene
     void setColors(){
         multiRenderer.setApplyBackgroundColor(true);
         multiRenderer.setBackgroundColor(Color.GRAY);
-        //multiRenderer.setYLabelsColor(0, Color.MAGENTA);
-        //multiRenderer.setLabelsColor(Color.GREEN);
-        //multiRenderer.setMarginsColor(Color.YELLOW);
-        //150 200 200 light blue
-        //multiRenderer.setMarginsColor(Color.rgb(150, 200, 200));
         multiRenderer.setYLabelsColor(0, Color.rgb(220,220,220));//yellow shade
-        //multiRenderer.setXLabelsColor(Color.WHITE);//yellow shade
         multiRenderer.setXLabelsColor(Color.rgb(220,220,220));//yellow shade
-        //multiRenderer.setYLabelsColor(0,Color.rgb(251, 177, 40));//yellow shade
-        //multiRenderer.setXLabelsColor(Color.rgb(251, 177, 40));//yellow shade
-        //multiRenderer.setLabelsColor(Color.BLACK);
         multiRenderer.setLabelsColor(Color.rgb(30,30,30));
-        //multiRenderer.setMarginsColor(Color.rgb(54, 175, 139));//green
-        //multiRenderer.setMarginsColor(Color.rgb(56, 168, 173));//greenish blue
         multiRenderer.setMarginsColor(Color.rgb(88, 159, 167));//value
         renderer1.setColor(Color.rgb(215,0,0));//reds
-        //renderer1.setColor(Color.rgb(251, 177, 40));
         renderer2.setColor(Color.rgb(35,15,215));
     }
 
     private void setupChart(){
         Log.e(TAG, "+++ setupChart +++");
-        Log.e(TAG, "+++ isTablet ?? +++"+isTablet(this));//set size n all accordingly
+        Log.e(TAG, "+++ isTablettodaysStepsTxt ?? +++"+isTablet(this));//set size n all accordingly
         // Creating XYSeriesRenderer to customize dataSeries1
         renderer1 = new XYSeriesRenderer();
         renderer1.setPointStyle(PointStyle.CIRCLE);
@@ -133,7 +147,6 @@ public class TimeChartActivity extends Activity implements OnItemSelectedListene
         renderer2 = new XYSeriesRenderer();
         renderer2.setPointStyle(PointStyle.CIRCLE);
         renderer2.setFillPoints(true);;
-        //renderer2.setChartValuesTextSize(20);//TODO
         renderer2.setDisplayChartValues(true);
 
         // Creating a XYMultipleSeriesRenderer to customize the whole chart
@@ -226,7 +239,6 @@ public class TimeChartActivity extends Activity implements OnItemSelectedListene
     private void getMainActivityData(){
         Log.e(TAG, "+++ getMainActivityData +++");
         Bundle bundle = getIntent().getExtras();
-
 //        if(strChosen.equals("CALORIES")){
 //
 //            for( BTHealthUIDO u:uiObjects){
@@ -247,12 +259,10 @@ public class TimeChartActivity extends Activity implements OnItemSelectedListene
 //        }
 
         if(strChosen.equals(GraphChoice.WEIGHT.toString())){
-
             RealmResults<WeightDO> logs = dbService.findAllWtLogs();
-
             for( WeightDO u:logs){
                 if(u.getWeight()!=null)
-                    dataSeries1.add(getDate(u.getDate()), Double.parseDouble(u.getWeight()));
+                    dataSeries1.add(u.getDate(), Double.parseDouble(u.getWeight()));
 
             }
         }
@@ -263,12 +273,13 @@ public class TimeChartActivity extends Activity implements OnItemSelectedListene
                     dataSeries1.add(getDate(u.getDate()), Double.parseDouble(u.getSteps()));
             }
         }
-        //TODO
-
-//        dataSeries1.add(getDate("2015-07-12"),44);
-//        dataSeries1.add(getDate("2015-07-15"),54);
-
-        //this extension of axes done as points coincide on the borders otherwise and it's difficult to view the border points
+        else if(strChosen.equals(GraphChoice.CALORIES.toString())){
+            RealmResults<CalBurntDO> logs = dbService.findAllCalBurntLogs();
+            for( CalBurntDO u:logs){
+                if(u.getCalBurnt()!=null)
+                    dataSeries1.add(getDate(u.getDate()), Double.parseDouble(u.getCalBurnt()));
+            }
+        }
         double minY = 	dataSeries1.getMinY();
         double minX = 	dataSeries1.getMinX();
         double maxY = 	dataSeries1.getMaxY();
@@ -321,4 +332,5 @@ public class TimeChartActivity extends Activity implements OnItemSelectedListene
         boolean large = ((context.getResources().getConfiguration().screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK) == Configuration.SCREENLAYOUT_SIZE_LARGE);
         return (xlarge || large);
     }
+
 }

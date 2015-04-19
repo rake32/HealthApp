@@ -17,19 +17,20 @@
         android:paddingBottom="10dp">
 
         <TextView
-            android:id="@+id/todaysStepsTxt"
+            android:id="@+id/curStatusLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="STEPS TODAY"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textStyle="bold" />
-        <TextViewount
-            android:id="@+id/todaysStepsCount"
+            android:textStyle="bold"
+            android:paddingRight="50pt"/>
+        <TextView
+            android:id="@+id/curStatusVal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="11111"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:paddingRight="50pt"/>
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

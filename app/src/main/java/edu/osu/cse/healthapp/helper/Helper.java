@@ -8,12 +8,13 @@ import java.util.Locale;
  * Created by siddhi on 4/7/15.
  */
 public class Helper {
-    public static String getDateTime() {
+    public static Date getDateTime() {
         SimpleDateFormat dateFormat = new SimpleDateFormat(
                 "yyyy-MM-dd", Locale.getDefault());
         Date date;
         date = new Date();
-        return dateFormat.format(date);
+        return date;
+        //return dateFormat.format(date);
     }
 
     public static boolean isValidInt(String s) {

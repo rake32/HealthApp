@@ -1,12 +1,14 @@
 package edu.osu.cse.healthapp.db;
 
+import java.util.Date;
+
 import io.realm.RealmObject;
 
 /**
  * Created by siddhi on 4/18/15.
  */
 public class WeightDO extends RealmObject{
-    private String date;
+    private Date date;
     private String weight;
 
     public String getWeight() {
@@ -17,11 +19,11 @@ public class WeightDO extends RealmObject{
         this.weight = weight;
     }
 
-    public String getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 }
