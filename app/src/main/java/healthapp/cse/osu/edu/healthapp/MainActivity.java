@@ -7,12 +7,8 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
-import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import edu.osu.cse.healthapp.helper.DBService;
 import edu.osu.cse.healthapp.helper.GraphChoice;
@@ -45,6 +41,8 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         final Intent intent = new Intent(this, TimeChartActivity.class);
+        final Intent ime = new Intent(this, Me.class);
+        final Intent ifood = new Intent(this, Food.class);
 
         //this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         steps=(TextView)findViewById(R.id.textView);
@@ -88,7 +86,7 @@ public class MainActivity extends ActionBarActivity {
         food.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                startActivity(ifood);
             }
         });
         water=(TextView)findViewById(R.id.textView6);
@@ -96,7 +94,8 @@ public class MainActivity extends ActionBarActivity {
         water.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                intent.putExtra("GRAPH_FOR", GraphChoice.WATER.toString());
+                startActivity(intent);
             }
         });
         meds=(TextView)findViewById(R.id.textView7);
@@ -112,9 +111,10 @@ public class MainActivity extends ActionBarActivity {
         me.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                startActivity(ime);
             }
         });
+
 
 
     }

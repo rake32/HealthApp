@@ -6,6 +6,7 @@ package edu.osu.cse.healthapp.helper;
 public enum GraphChoice {
     STEPS,
     CALORIES,
+    WATER,
     SYSTOLIC,
     DIASTOLIC,
     PULSE,

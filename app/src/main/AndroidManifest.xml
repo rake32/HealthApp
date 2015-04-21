@@ -10,6 +10,15 @@
 
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.FLASHLIGHT" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
+    <uses-feature
+        android:name="android.hardware.touchscreen"
+        android:required="false" />
+    <uses-feature
+        android:name="android.software.leanback"
+        android:required="true" />
 
     <application
         android:allowBackup="true"
@@ -24,7 +33,6 @@
         <activity
             android:name=".MenuActivity"
             android:label="@string/title_activity_menu" >
-
         </activity>
         <activity
             android:name=".MedActivity"
@@ -49,16 +57,31 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_main" >
+        </activity>
+        <activity
+            android:name=".TimeChartActivity"
+            android:label="@string/title_activity_time_chart" >
+        </activity>
+        <activity
+            android:name=".Register"
+            android:label="@string/title_activity_register" >
+        </activity>
+        <activity
+            android:name=".Me"
+            android:label="@string/title_activity_me" >
+        </activity>
+        <activity
+            android:name=".First"
+            android:label="@string/title_activity_first" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
         <activity
-            android:name=".TimeChartActivity"
-            android:label="@string/title_activity_time_chart" >
+            android:name=".Food"
+            android:label="@string/title_activity_food" >
         </activity>
     </application>
 

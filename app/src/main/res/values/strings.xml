@@ -10,4 +10,14 @@
     <string name="title_activity_barcode_scanner">BarcodeScannerActivity</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="title_activity_time_chart">TimeChartActivity</string>
+    <string name="title_activity_me">me</string>
+    <string name="title_activity_first">first</string>
+    <string name="title_activity_register">register</string>
+    <string-array name="devs">
+
+        <item>None</item>
+        <item>JawBone</item>
+        <item>FitBit</item>
+    </string-array>
+    <string name="title_activity_food">food</string>
 </resources>

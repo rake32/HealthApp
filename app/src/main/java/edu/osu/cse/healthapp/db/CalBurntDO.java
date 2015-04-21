@@ -1,12 +1,14 @@
 package edu.osu.cse.healthapp.db;
 
+import java.util.Date;
+
 import io.realm.RealmObject;
 
 /**
  * Created by siddhi on 4/18/15.
  */
 public class CalBurntDO extends RealmObject{
-    private String date;
+    private Date date;
     private String calBurnt;
     public String getCalBurnt() {
         return calBurnt;
@@ -16,11 +18,11 @@ public class CalBurntDO extends RealmObject{
         this.calBurnt = calBurnt;
     }
 
-    public String getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 }

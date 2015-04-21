@@ -15,6 +15,7 @@ import org.achartengine.renderer.XYMultipleSeriesRenderer;
 import org.achartengine.renderer.XYSeriesRenderer;
 import edu.osu.cse.healthapp.db.CalBurntDO;
 import edu.osu.cse.healthapp.db.StepsDO;
+import edu.osu.cse.healthapp.db.WaterDO;
 import edu.osu.cse.healthapp.db.WeightDO;
 import edu.osu.cse.healthapp.helper.DBService;
 import edu.osu.cse.healthapp.helper.GraphChoice;
@@ -270,14 +271,22 @@ public class TimeChartActivity extends Activity implements OnItemSelectedListene
             RealmResults<StepsDO> logs = dbService.findAllSteps();
             for( StepsDO u:logs){
                 if(u.getSteps()!=null)
-                    dataSeries1.add(getDate(u.getDate()), Double.parseDouble(u.getSteps()));
+                    dataSeries1.add(u.getDate(), Double.parseDouble(u.getSteps()));
             }
         }
         else if(strChosen.equals(GraphChoice.CALORIES.toString())){
             RealmResults<CalBurntDO> logs = dbService.findAllCalBurntLogs();
             for( CalBurntDO u:logs){
                 if(u.getCalBurnt()!=null)
-                    dataSeries1.add(getDate(u.getDate()), Double.parseDouble(u.getCalBurnt()));
+                    dataSeries1.add(u.getDate(), Double.parseDouble(u.getCalBurnt()));
+            }
+        }
+        else if(strChosen.equals(GraphChoice.WATER.toString())){
+            RealmResults<WaterDO> logs = dbService.findAllWaterLogs();
+            for( WaterDO u:logs){
+                if(u.getWater()!=null)
+                    dataSeries1.add(u.getDate(), Double.parseDouble(u.getWater()));
+
             }
         }
         double minY = 	dataSeries1.getMinY();
