@@ -16,7 +16,7 @@ import io.realm.Realm;
 
 
 public class MainActivity extends ActionBarActivity {
-    private  String TAG = MenuActivity.class.getName();
+    private  String TAG = MainActivity.class.getName();
     private Realm realm;
     DBService dbService;
 

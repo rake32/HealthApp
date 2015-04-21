@@ -86,7 +86,7 @@ public class TimeChartActivity extends Activity implements OnItemSelectedListene
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO -
+                //TODO - add all add options...
                 dbService.addWtLog("50");
 
             }
